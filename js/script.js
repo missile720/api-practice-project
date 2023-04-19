@@ -1,3 +1,13 @@
+//adds event listener to the button
+document.getElementById("inputButton").addEventListener('click', input)
+
+//function that stores input field, clears field and sends input to searchHero function
+function input(){
+    let name = document.getElementById("inputField").value;
+    document.getElementById("inputField").value = "";
+    searchHero(name);
+}
+
 //function that searches for super hero
 function searchHero(name){
     //fetch request was blocked by CORS policy, it means that the API server is not configured to allow cross-origin requests from your domain.
@@ -12,5 +22,3 @@ function searchHero(name){
 function displayHero(data){
     console.log(data)
 }
-
-searchHero('batman')
