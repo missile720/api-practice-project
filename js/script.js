@@ -20,5 +20,46 @@ function searchHero(name){
 
 //function that displays super hero onto html
 function displayHero(data){
-    console.log(data)
+    //DOM for the container
+    let container = document.getElementById('container');
+    //makes sure it is empty
+    container.innerHTML = "";
+    
+    //loop though array of characters
+    data.forEach(element => {
+        container.innerHTML += `
+        <div class="card">
+            <div class="row">
+                <div class="column">
+                    <h2>${element.name}</h2>
+                    <div>
+                        <img class='img' src="${element.image.url}" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <h4 class="listTitle">PowerStats:</h4>
+                    <ul class="list">
+                        <li>Combat: ${element.powerstats.combat}</li>
+                        <li>Durability: ${element.powerstats.durability}</li>
+                        <li>Intelligence: ${element.powerstats.intelligence}</li>
+                        <li>Power: ${element.powerstats.power}</li>
+                        <li>Speed: ${element.powerstats.speed}</li>
+                        <li>Strength: ${element.powerstats.strength}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <h4 class="listTitle">Biography:</h4>
+                <ul class="list">
+                    <li>Alignment: ${element.biography.alignment}</li>
+                    <li>Alter Egos: ${element.biography["alter-egos"]}</li>
+                    <li>First Appearance: ${element.biography["first-appearance"]}</li>
+                    <li>Full Name: ${element.biography["full-name"]}</li>
+                    <li>Place of Birth: ${element.biography["place-of-birth"]}</li>
+                    <li>Publisher: ${element.biography.publisher}</li>
+                </ul>
+            </div>
+        </div>`;
+    });
+    
 }
